@@ -47,6 +47,10 @@ spl_autoload_register();
 require 'config.php';
 require 'lib/password.php';
 
+require 'lib/phpseclib/Net/SSH2.php';
+
+$ssh = new \Net_SSH2('localhost');
+
 function build_rbpi($response) {
     $response['rbpi']['hostname'] = Rbpi::hostname(true);
     $response['rbpi']['distribution'] = Rbpi::distribution();
